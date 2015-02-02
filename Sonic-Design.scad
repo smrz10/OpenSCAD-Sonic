@@ -3,6 +3,7 @@ husmum@gatech.edu
 */
 
 BLACK = "Black";
+WHITE = "White";
 
 module base() {
 	color(BLACK)
@@ -27,7 +28,7 @@ difference(){
 
 
 module eyes_base() {
-	color("White"){
+	color(WHITE){
 		difference(){
 			hull(){
 				translate([14,8,4])
@@ -62,7 +63,7 @@ module eye(y)
 				sphere(r=1);}}
 
 	//Light
-	color("White"){
+	color(WHITE){
 		translate([20.1,y-.2,2]){
 				sphere(r=.4);}}}
 
