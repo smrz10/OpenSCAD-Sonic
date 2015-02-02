@@ -5,6 +5,7 @@ husmum@gatech.edu
 BLACK = "Black";
 WHITE = "White";
 BLUE = [.31, .45, .69];
+SKIN = [.90,.596,.41];
 
 
 module base() {
@@ -137,7 +138,7 @@ module nose() {
 
 //Mouth Area
 
-color([.90,.596,.41])
+color(SKIN)
 translate([7,0,0])
 	difference(){
 		sphere(r=15);
@@ -216,7 +217,7 @@ cube([10,10,10]);
 //Inner lobes. The difference shading is eh, 
 //but it is needed to indicate the inner lobes
 
-color([.90,.596,.41])
+color(SKIN)
 difference(){
 cylinder(h=6, r1=4, r2=0);
 
