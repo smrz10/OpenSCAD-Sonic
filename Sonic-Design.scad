@@ -72,9 +72,12 @@ module eye(y)
 
 
 module eyes() {
+	LEFT = 7;
+	RIGHT = -7;
+
 	eyes_base();
-	eye(7);
-	eye(-7);	
+	eye(LEFT);
+	eye(RIGHT);	
 }
 
 //Sonic's spiky hair
