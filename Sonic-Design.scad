@@ -2,11 +2,12 @@
 husmum@gatech.edu
 */
 
+module base() {
+	color("Black")
+		translate([-6,0,-20])
+			cylinder(h=2,r=32);
+}
 
-//Cylindrical Base
-color("Black")
-translate([-6,0,-20])
-	cylinder(h=2,r=32);
 
 //Face and space for eyes
 difference(){
@@ -210,7 +211,7 @@ rotate([25,0,0])
 ear();
 
 module make_sonic_head() {
-
+	base();
 
 }
 
