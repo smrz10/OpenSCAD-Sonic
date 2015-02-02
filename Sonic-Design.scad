@@ -3,8 +3,6 @@ husmum@gatech.edu
 */
 
 
-//Lets make Sonic's Head
-
 //Cylindrical Base
 color("Black")
 translate([-6,0,-20])
@@ -210,3 +208,10 @@ ear();
 translate([5,-10,16])
 rotate([25,0,0])
 ear();
+
+module make_sonic_head() {
+
+
+}
+
+make_sonic_head();
