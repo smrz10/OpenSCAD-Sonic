@@ -118,22 +118,22 @@ for (i = [0:25]){
 	hair(90-i,0-i/25,0,-8-i,8-i/3.125);
 }
 
-//Nose
+module nose() {
+	translate([20,0,0])
+	difference(){
+		color(BLACK)
+		hull(){
+			sphere(r=2);
 
-translate([20,0,0])
-difference(){
-	color(BLACK)
-	hull(){
-		sphere(r=2);
+		translate([2,0,0])
+			sphere(r=2.4);}
 
-	translate([2,0,0])
-		sphere(r=2.4);}
+		translate([1,0,3])
+			sphere(r=2);
 
-	translate([1,0,3])
-		sphere(r=2);
-
-	translate([1,0,-3])
-		sphere(r=2);} 
+		translate([1,0,-3])
+			sphere(r=2);} 	
+}
 
 //Mouth Area
 
@@ -234,6 +234,7 @@ ear();
 module make_sonic_head() {
 	base();
 	eyes();
+	nose();
 
 }
 
