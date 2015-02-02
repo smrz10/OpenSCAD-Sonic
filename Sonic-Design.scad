@@ -136,70 +136,76 @@ module nose() {
 			sphere(r=2);} 	
 }
 
-//Mouth Area
 
-color(SKIN)
-translate([7,0,0])
+module cheek() {
+	color(SKIN)
+	translate([7,0,0])
+		difference(){
+			sphere(r=15);
+
+			translate([-15,-15,-15])
+				cube([15,30,30]);
+
+			rotate([0,90,0])
+			translate([-15,-15,-15])
+				cube([15,30,30]);
+
+			sphere(r=13.5);
+
+			translate([8,-7.5,6])
+				sphere(r=9);
+
+			translate([8,7.5,6])
+				sphere(r=9);
+
+			translate([15,0,2])
+				sphere(r=4);}
+}
+
+module smirk() {
+	color(BLACK)
+	translate([-10,3,-7]){
 	difference(){
-		sphere(r=15);
+	rotate([15,0,0])
+	translate([30,0,0])
+	scale([1,4,1])
+		sphere(r=1);
 
-		translate([-15,-15,-15])
-			cube([15,30,30]);
+	rotate([15,0,0])
+	translate([30,0,1])
+	scale([1,4,1])
+		sphere(r=1);
+	}
 
-		rotate([0,90,0])
-		translate([-15,-15,-15])
-			cube([15,30,30]);
+	difference(){
+	rotate([-15,0,0])
+	translate([30,3,2])
+	scale([1,1,4])
+		sphere(r=1);
 
-		sphere(r=13.5);
+	rotate([-15,0,0])
+	translate([30,3,0])
+	scale([1,1,4])
+		sphere(r=1);
+	}
 
-		translate([8,-7.5,6])
-			sphere(r=9);
+	difference(){
+	rotate([15,0,0])
+	translate([30,3.5,0])
+	scale([1,1,4])
+		sphere(r=1);
 
-		translate([8,7.5,6])
-			sphere(r=9);
-
-		translate([15,0,2])
-			sphere(r=4);}
-
-//Smirk
-
-color(BLACK)
-translate([-10,3,-7]){
-difference(){
-rotate([15,0,0])
-translate([30,0,0])
-scale([1,4,1])
-	sphere(r=1);
-
-rotate([15,0,0])
-translate([30,0,1])
-scale([1,4,1])
-	sphere(r=1);
+	rotate([15,0,0])
+	translate([30,3.5,2])
+	scale([1,1,4])
+		sphere(r=1);
+	}}
 }
 
-difference(){
-rotate([-15,0,0])
-translate([30,3,2])
-scale([1,1,4])
-	sphere(r=1);
-
-rotate([-15,0,0])
-translate([30,3,0])
-scale([1,1,4])
-	sphere(r=1);
+module mouth_area() {
+	cheek();
+	smirk();
 }
-
-difference(){
-rotate([15,0,0])
-translate([30,3.5,0])
-scale([1,1,4])
-	sphere(r=1);
-
-rotate([15,0,0])
-translate([30,3.5,2])
-scale([1,1,4])
-	sphere(r=1);
-}}
 
 //Ears
 
@@ -236,7 +242,7 @@ module make_sonic_head() {
 	base();
 	eyes();
 	nose();
-
+	mouth_area();
 }
 
 make_sonic_head();
