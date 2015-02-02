@@ -5,8 +5,6 @@ husmum@gatech.edu
 
 //Lets make Sonic's Head
 
-//F6 renders without color
-
 //Cylindrical Base
 color("Black")
 translate([-6,0,-20])
