@@ -2,8 +2,10 @@
 husmum@gatech.edu
 */
 
+BLACK = "Black";
+
 module base() {
-	color("Black")
+	color(BLACK)
 		translate([-6,0,-20])
 			cylinder(h=2,r=32);
 }
@@ -48,7 +50,7 @@ module eye(y)
 				sphere(r=1.0); }}
 	
 	//Pupil
-	color("Black"){
+	color(BLACK){
 		translate([19.6,y,3]){
 			scale([1,1,2])
 				sphere(r=1);}}
@@ -101,7 +103,7 @@ for (i = [0:25]){
 
 translate([20,0,0])
 difference(){
-	color("Black")
+	color(BLACK)
 	hull(){
 		sphere(r=2);
 
@@ -141,7 +143,7 @@ translate([7,0,0])
 
 //Smirk
 
-color("Black")
+color(BLACK)
 translate([-10,3,-7]){
 difference(){
 rotate([15,0,0])
