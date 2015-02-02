@@ -4,6 +4,8 @@ husmum@gatech.edu
 
 BLACK = "Black";
 WHITE = "White";
+BLUE = [.31, .45, .69];
+
 
 module base() {
 	color(BLACK)
@@ -14,7 +16,7 @@ module base() {
 
 //Face and space for eyes
 difference(){
-	color([.31, .45, .69])
+	color(BLUE)
 		sphere(r=20);
 	
 		sphere(r=18);
@@ -82,7 +84,7 @@ module eyes() {
 
 //Sonic's spiky hair
 module hair(d,x,y,z,r){ 
-	color([.31, .45, .69])
+	color(BLUE)
 		rotate([0,d,0])
 			translate([x,y,z])
 				cylinder(h=5,r=r);
@@ -201,7 +203,7 @@ scale([1,1,4])
 //Ears
 
 module ear() {
-color([.31, .45, .69])
+color(BLUE)
 difference(){
 cylinder(h=10, r1=5, r2=0);
 
