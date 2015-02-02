@@ -24,22 +24,28 @@ difference(){
 		translate([15,-8,4])
 				sphere(r=5);}}
 
-//Eyes
 
-//Base
-color("White"){
-difference(){
-	hull(){
-		translate([14,8,4])
-			sphere(r=5);
-		translate([14,-8,4])
-			sphere(r=5);}}
 
-	hull(){
-		translate([14,8,4])
-			sphere(r=3);
-		translate([14,-8,4])
-			sphere(r=3);}}
+module eyes_base() {
+	color("White"){
+		difference(){
+			hull(){
+				translate([14,8,4])
+					sphere(r=5);
+				translate([14,-8,4])
+					sphere(r=5);}}
+
+			hull(){
+				translate([14,8,4])
+					sphere(r=3);
+				translate([14,-8,4])
+					sphere(r=3);}
+		}	
+}
+
+module eyes() {
+	eyes_base();	
+}
 
 module eye(y)
 {
@@ -214,6 +220,7 @@ ear();
 
 module make_sonic_head() {
 	base();
+	eyes();
 
 }
 
