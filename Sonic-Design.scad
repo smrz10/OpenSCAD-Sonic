@@ -207,42 +207,52 @@ module mouth_area() {
 	smirk();
 }
 
-//Ears
+module ear_intern() {
+	cylinder(h=6, r1=4, r2=0);
+}
+
+module ear_extern() {
+	cylinder(h=10, r1=5, r2=0);
+}
 
 module ear() {
-color(BLUE)
-difference(){
-cylinder(h=10, r1=5, r2=0);
+	color(BLUE)
+	difference(){
+		ear_extern();
+		ear_intern();
 
-cylinder(h=6, r1=4, r2=0);
+		translate([0,-5,0])
+		cube([10,10,10]);
+	}
 
-translate([0,-5,0])
-cube([10,10,10]);
+	//Inner lobes. The difference shading is eh, 
+	//but it is needed to indicate the inner lobes
+
+	color(SKIN)
+		difference(){
+			cylinder(h=6, r1=4, r2=0);
+
+			translate([0,-4,0])
+				cube([8,8,8]);
+		}
 }
 
-//Inner lobes. The difference shading is eh, 
-//but it is needed to indicate the inner lobes
+module ears() {
+	translate([5,10,16])
+		rotate([-25,0,0])
+			ear();
 
-color(SKIN)
-difference(){
-cylinder(h=6, r1=4, r2=0);
-
-translate([0,-4,0])
-cube([8,8,8]);}
+	translate([5,-10,16])
+		rotate([25,0,0])
+			ear();	
 }
-translate([5,10,16])
-rotate([-25,0,0])
-ear();
-
-translate([5,-10,16])
-rotate([25,0,0])
-ear();
 
 module make_sonic_head() {
 	base();
 	eyes();
 	nose();
 	mouth_area();
+	ears();
 }
 
 make_sonic_head();
