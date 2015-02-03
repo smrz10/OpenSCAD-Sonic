@@ -230,7 +230,7 @@ module ear() {
 
 	color(SKIN)
 		difference(){
-			cylinder(h=6, r1=4, r2=0);
+			ear_intern();
 
 			translate([0,-4,0])
 				cube([8,8,8]);
