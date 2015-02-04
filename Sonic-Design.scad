@@ -2,10 +2,14 @@
 husmum@gatech.edu
 */
 
+ARRAY_BASE_CORRECTION = -1;
+
 BLACK = "Black";
 WHITE = "White";
 BLUE = [.31, .45, .69];
 SKIN = [.90,.596,.41];
+
+NUMBER_OF_SPINES = 25;
 
 
 module base() {
@@ -83,40 +87,34 @@ module eyes() {
 	eye(RIGHT);	
 }
 
-//Sonic's spiky hair
-module hair(d,x,y,z,r){ 
+module spine(position_initial, number_of_spine) {
+	rotation_y = 90 - number_of_spine;
+	radio = 8 - number_of_spine / 3.125;
+
+	position_x = position_initial[0] - number_of_spine / NUMBER_OF_SPINES;
+	position_y = position_initial[1];
+	position_z = position_initial[2] - number_of_spine;
+	position = [position_x, position_y, position_z];
+
 	color(BLUE)
-		rotate([0,d,0])
-			translate([x,y,z])
-				cylinder(h=5,r=r);
+		rotate([0,rotation_y,0])
+			translate(position)
+				cylinder(h=5,r=radio);	
 }
 
-//Unfortunately SCAD doesn't allow calling 
-//modules within modules, excuse how messy this 
-//looks
-
-for (i = [0:25]){
-	hair(90-i,-12-i/25,0,-8-i,8-i/3.125);
+module lock(position_initial) {
+	for (i = [0:NUMBER_OF_SPINES]) {
+		spine(position_initial, i);
+	}
 }
 
-for (i = [0:25]){
-	hair(90-i,-5-i/25,8,-8-i,8-i/3.125);
-}
-
-for (i = [0:25]){
-	hair(90-i,-5-i/25,-8,-8-i,8-i/3.125);
-}
-
-for (i = [0:25]){
-	hair(90-i,5-i/25,8,-8-i,8-i/3.125);
-}
-
-for (i = [0:25]){
-	hair(90-i,5-i/25,-8,-8-i,8-i/3.125);
-}
-
-for (i = [0:25]){
-	hair(90-i,0-i/25,0,-8-i,8-i/3.125);
+module hair() {
+	position_locks = [[-12,0,-8],[-5,8,-8],[-5,-8,-8],[5,8,-8],[5,-8,-8],[0,0,-8]];
+	number_of_locks = len(position_locks);
+	
+	for (i = [0:number_of_locks + ARRAY_BASE_CORRECTION]) {
+		lock(position_locks[i]);
+	}
 }
 
 module nose() {
@@ -253,6 +251,7 @@ module make_sonic_head() {
 	nose();
 	mouth_area();
 	ears();
+	hair();
 }
 
 make_sonic_head();
