@@ -35,18 +35,21 @@ difference(){
 
 
 module eyes_base() {
+	LEFT = [14,8,4];
+	RIGHT = [14,-8,4]; 
+
 	color(WHITE){
 		difference(){
 			hull(){
-				translate([14,8,4])
+				translate(LEFT)
 					sphere(r=5);
-				translate([14,-8,4])
+				translate(RIGHT)
 					sphere(r=5);}}
 
 			hull(){
-				translate([14,8,4])
+				translate(LEFT)
 					sphere(r=3);
-				translate([14,-8,4])
+				translate(RIGHT)
 					sphere(r=3);}
 		}	
 }
