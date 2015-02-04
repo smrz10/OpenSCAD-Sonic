@@ -18,21 +18,25 @@ module base() {
 			cylinder(h=2,r=32);
 }
 
+module space_eye(position) {
+	translate(position)
+		sphere(r=5);		
+}
 
-//Face and space for eyes
-difference(){
-	color(BLUE)
-		sphere(r=20);
-	
-		sphere(r=18);
-	hull(){
-		translate([15,8,4])
-				sphere(r=5);
-		
-		translate([15,-8,4])
-				sphere(r=5);}}
+module skull() {
+	LEFT = [15,8,4];
+	RIGHT = [15,-8,4];
 
-
+	difference(){
+		color(BLUE)
+			sphere(r=20);	
+			sphere(r=18);
+		hull(){
+			space_eye(LEFT);
+			space_eye(RIGHT);
+			}
+	}
+}
 
 module eyes_base() {
 	LEFT = [14,8,4];
@@ -248,8 +252,9 @@ module ears() {
 			ear();	
 }
 
-module make_sonic_head() {
+module make_sonic_head() {	
 	base();
+	skull();
 	eyes();
 	nose();
 	mouth_area();
