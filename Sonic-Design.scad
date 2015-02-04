@@ -64,8 +64,8 @@ module eye(y)
 	color("LimeGreen"){
 		translate([18.3,y,4]) 
 			{
-				scale([2.0,2.0,3.0]) 
-					sphere(r=1.0); 
+				scale([2,2,3]) 
+					sphere(r=1); 
 			}}
 	
 	//Pupil
