@@ -8,6 +8,7 @@ BLACK = "Black";
 WHITE = "White";
 BLUE = [.31, .45, .69];
 SKIN = [.90,.596,.41];
+GREENEYES = "LimeGreen";
 
 NUMBER_OF_SPINES = 25;
 
@@ -59,7 +60,7 @@ module eyes_base() {
 }
 
 module iris(offset_y) {
-	color("LimeGreen"){
+	color(GREENEYES){
 		translate([18.3,offset_y,4]) 
 			{
 				scale([2,2,3]) 
