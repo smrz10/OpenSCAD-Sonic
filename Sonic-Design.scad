@@ -58,30 +58,38 @@ module eyes_base() {
 		}	
 }
 
-module eye(offset_y)
-{
-	//Iris
+module iris(offset_y) {
 	color("LimeGreen"){
 		translate([18.3,offset_y,4]) 
 			{
 				scale([2,2,3]) 
 					sphere(r=1); 
 			}}
-	
-	//Pupil
+}
+
+module pupil(offset_y) {
 	color(BLACK){
 		translate([19.6,offset_y,3])
 			{
 				scale([1,1,2])
 					sphere(r=1);
-			}}
+			}}	
+}
 
-	//Light
+module light(offset_y) {
 	color(WHITE){
 		translate([20.1,offset_y-.2,2])
 			{
 				sphere(r=.4);
 			}}
+}
+
+
+module eye(offset_y)
+{
+	iris(offset_y);
+	pupil(offset_y);
+	light(offset_y);
 }
 
 
