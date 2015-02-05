@@ -30,8 +30,8 @@ module skull() {
 	LEFT = 8;
 	RIGHT = -8;
 
+	color(BLUE)
 	difference(){
-		color(BLUE)
 			sphere(r=20);	
 			sphere(r=18);
 		hull(){
@@ -45,46 +45,40 @@ module eyes_base() {
 	LEFT = [14,8,4];
 	RIGHT = [14,-8,4]; 
 
-	color(WHITE){
-		difference(){
-			hull(){
-				translate(LEFT)
-					sphere(r=5);
-				translate(RIGHT)
-					sphere(r=5);}}
+	color(WHITE)
+	difference(){
+		hull(){
+			translate(LEFT)
+				sphere(r=5);
+			translate(RIGHT)
+				sphere(r=5);}
 
-			hull(){
-				translate(LEFT)
-					sphere(r=3);
-				translate(RIGHT)
-					sphere(r=3);}
-		}	
+		hull(){
+			translate(LEFT)
+				sphere(r=3);
+			translate(RIGHT)
+				sphere(r=3);}
+	}	
 }
 
 module iris(offset_y) {
-	color(GREENEYES){
+	color(GREENEYES)
 		translate([18.3,offset_y,4]) 
-			{
-				scale([2,2,3]) 
-					sphere(r=1); 
-			}}
+			scale([2,2,3]) 
+				sphere(r=1); 
 }
 
 module pupil(offset_y) {
-	color(BLACK){
-		translate([19.6,offset_y,3])
-			{
-				scale([1,1,2])
-					sphere(r=1);
-			}}	
+	color(BLACK)
+	translate([19.6,offset_y,3])
+		scale([1,1,2])
+			sphere(r=1);
 }
 
 module light(offset_y) {
-	color(WHITE){
-		translate([20.1,offset_y-.2,2])
-			{
-				sphere(r=.4);
-			}}
+	color(WHITE)
+	translate([20.1,offset_y-.2,2])
+		sphere(r=.4);		
 }
 
 
@@ -137,19 +131,20 @@ module hair() {
 
 module nose() {
 	translate([20,0,0])
-	difference(){
-		color(BLACK)
-		hull(){
-			sphere(r=2);
+		difference(){
+			color(BLACK)
+			hull(){
+				sphere(r=2);
 
-		translate([2,0,0])
-			sphere(r=2.4);}
+			translate([2,0,0])
+				sphere(r=2.4);}
 
-		translate([1,0,3])
-			sphere(r=2);
+			translate([1,0,3])
+				sphere(r=2);
 
-		translate([1,0,-3])
-			sphere(r=2);} 	
+			translate([1,0,-3])
+				sphere(r=2);
+		} 	
 }
 
 
@@ -163,8 +158,8 @@ module cheek() {
 				cube([15,30,30]);
 
 			rotate([0,90,0])
-			translate([-15,-15,-15])
-				cube([15,30,30]);
+				translate([-15,-15,-15])
+					cube([15,30,30]);
 
 			sphere(r=13.5);
 
@@ -175,47 +170,48 @@ module cheek() {
 				sphere(r=9);
 
 			translate([15,0,2])
-				sphere(r=4);}
+				sphere(r=4);
+		}
 }
 
 module smirk() {
 	color(BLACK)
 	translate([-10,3,-7]){
-	difference(){
-	rotate([15,0,0])
-	translate([30,0,0])
-	scale([1,4,1])
-		sphere(r=1);
+		difference(){
+			rotate([15,0,0])
+				translate([30,0,0])
+					scale([1,4,1])
+						sphere(r=1);
 
-	rotate([15,0,0])
-	translate([30,0,1])
-	scale([1,4,1])
-		sphere(r=1);
-	}
+			rotate([15,0,0])
+				translate([30,0,1])
+					scale([1,4,1])
+						sphere(r=1);
+		}
 
-	difference(){
-	rotate([-15,0,0])
-	translate([30,3,2])
-	scale([1,1,4])
-		sphere(r=1);
+		difference(){
+			rotate([-15,0,0])
+				translate([30,3,2])
+					scale([1,1,4])
+						sphere(r=1);
 
-	rotate([-15,0,0])
-	translate([30,3,0])
-	scale([1,1,4])
-		sphere(r=1);
-	}
+			rotate([-15,0,0])
+				translate([30,3,0])
+					scale([1,1,4])
+						sphere(r=1);
+		}
 
-	difference(){
-	rotate([15,0,0])
-	translate([30,3.5,0])
-	scale([1,1,4])
-		sphere(r=1);
+		difference(){
+			rotate([15,0,0])
+				translate([30,3.5,0])
+					scale([1,1,4])
+						sphere(r=1);
 
-	rotate([15,0,0])
-	translate([30,3.5,2])
-	scale([1,1,4])
-		sphere(r=1);
-	}}
+			rotate([15,0,0])
+				translate([30,3.5,2])
+					scale([1,1,4])
+						sphere(r=1);
+		}}
 }
 
 module mouth_area() {
@@ -233,13 +229,13 @@ module ear_extern() {
 
 module ear() {
 	color(BLUE)
-	difference(){
-		ear_extern();
-		ear_intern();
+		difference(){
+			ear_extern();
+			ear_intern();
 
-		translate([0,-5,0])
-		cube([10,10,10]);
-	}
+			translate([0,-5,0])
+				cube([10,10,10]);
+		}
 
 	//Inner lobes. The difference shading is eh, 
 	//but it is needed to indicate the inner lobes
