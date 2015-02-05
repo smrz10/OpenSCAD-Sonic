@@ -98,10 +98,10 @@ module spine(position_initial, number_of_spine) {
 	rotation_y = 90 - number_of_spine;
 	radio = 8 - number_of_spine / 3.125;
 
-	position_x = position_initial[0] - number_of_spine / NUMBER_OF_SPINES;
-	position_y = position_initial[1];
-	position_z = position_initial[2] - number_of_spine;
-	position = [position_x, position_y, position_z];
+	offset_x = position_initial[0] - number_of_spine / NUMBER_OF_SPINES;
+	offset_y = position_initial[1];
+	offset_z = position_initial[2] - number_of_spine;
+	position = [offset_x, offset_y, offset_z];
 
 	color(BLUE)
 		rotate([0,rotation_y,0])
