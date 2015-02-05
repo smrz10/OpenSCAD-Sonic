@@ -19,14 +19,16 @@ module base() {
 			cylinder(h=2,r=32);
 }
 
-module space_eye(position) {
+module space_eye(offset_y) {
+	position = [15, offset_y ,4];	
+
 	translate(position)
 		sphere(r=5);		
 }
 
 module skull() {
-	LEFT = [15,8,4];
-	RIGHT = [15,-8,4];
+	LEFT = 8;
+	RIGHT = -8;
 
 	difference(){
 		color(BLUE)
