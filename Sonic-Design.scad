@@ -175,39 +175,42 @@ module cheek() {
 }
 
 module smirk() {
+	LEFT = [-15,0,0];
+	RIGHT = [15,0,0];
+
 	color(BLACK)
 	translate([-10,3,-7]){
 		difference(){
-			rotate([15,0,0])
+			rotate(RIGHT)
 				translate([30,0,0])
 					scale([1,4,1])
 						sphere(r=1);
 
-			rotate([15,0,0])
+			rotate(RIGHT)
 				translate([30,0,1])
 					scale([1,4,1])
 						sphere(r=1);
 		}
 
 		difference(){
-			rotate([-15,0,0])
+			rotate(LEFT)
 				translate([30,3,2])
 					scale([1,1,4])
 						sphere(r=1);
 
-			rotate([-15,0,0])
+			rotate(LEFT)
 				translate([30,3,0])
 					scale([1,1,4])
 						sphere(r=1);
 		}
 
 		difference(){
-			rotate([15,0,0])
+			rotate(RIGHT)
 				translate([30,3.5,0])
 					scale([1,1,4])
 						sphere(r=1);
 
-			rotate([15,0,0])
+			rotate(RIGHT)
 				translate([30,3.5,2])
 					scale([1,1,4])
 						sphere(r=1);
